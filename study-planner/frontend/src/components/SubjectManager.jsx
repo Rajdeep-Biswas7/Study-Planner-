@@ -126,17 +126,17 @@ export default function SubjectManager() {
   const currentList = data[activeTab] || []
 
   return (
-    <section id="subjects" className="px-6 md:px-16 py-10 max-w-4xl mx-auto font-body">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+    <section id="subjects" className="px-4 sm:px-6 md:px-10 lg:px-16 py-8 sm:py-10 max-w-5xl mx-auto font-body">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center justify-between mb-6">
         <div>
-          <p className="text-sm uppercase tracking-[0.25em] text-marigold mb-1">
+          <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-marigold mb-1">
             Subject & Topic Management
           </p>
-          <h2 className="font-display text-3xl font-semibold text-linen">
+          <h2 className="font-display text-2xl sm:text-3xl font-semibold text-linen">
             Syllabus Topic Breakdown
           </h2>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2">
           <button
             onClick={() => setShowSyllabusExtract(true)}
             className="rounded-full border border-teal/40 bg-teal/10 px-4 py-2 text-xs font-medium text-teal hover:bg-teal hover:text-linen transition"
@@ -159,7 +159,7 @@ export default function SubjectManager() {
             key={t.key}
             onClick={() => setActiveTab(t.key)}
             className={[
-              'rounded-full px-4 py-1.5 text-xs font-medium transition',
+              'rounded-full px-4 py-1.5 text-xs font-medium transition whitespace-nowrap',
               activeTab === t.key
                 ? 'bg-marigold text-ink'
                 : 'bg-surface text-linen/70 hover:bg-linen/10'
@@ -189,7 +189,7 @@ export default function SubjectManager() {
                 key={subject.id}
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="rounded-xl border border-linen/10 bg-surface p-5"
+                className="rounded-xl border border-linen/10 bg-surface p-4 sm:p-5"
               >
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                   <div>

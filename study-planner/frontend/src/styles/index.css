@@ -2,9 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  margin: 0;
   background-color: #1B1F3B;
   color: #F3EFE6;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 @media (prefers-reduced-motion: reduce) {

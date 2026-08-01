@@ -13,7 +13,7 @@ export default function App() {
   const [entered, setEntered] = useState(false)
 
   return (
-    <div className="min-h-screen bg-ink">
+    <div className="min-h-screen overflow-x-hidden bg-ink text-linen">
       {/* Calendar landing intro */}
       <Calendar onEnter={() => setEntered(true)} />
 
@@ -25,11 +25,11 @@ export default function App() {
           transition={{ duration: 0.5 }}
         >
           <Navbar />
-          <header className="px-6 md:px-16 pt-12 pb-4 max-w-4xl mx-auto">
-            <p className="font-body text-xs uppercase tracking-[0.25em] text-marigold font-semibold">
+          <header className="px-4 sm:px-6 md:px-10 lg:px-16 pt-8 sm:pt-12 pb-4 max-w-5xl mx-auto">
+            <p className="font-body text-[11px] sm:text-xs uppercase tracking-[0.25em] text-marigold font-semibold">
               Parakram GATE-CS 2027 · MAKAUT IT · Placement & Coding
             </p>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-linen mt-2">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-linen mt-2 leading-tight">
               One Plan. Topic Mastery. Zero Excuses.
             </h1>
           </header>
