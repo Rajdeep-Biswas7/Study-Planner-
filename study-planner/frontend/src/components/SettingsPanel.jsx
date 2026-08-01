@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const API_BASE = '/api'
+const API_BASE = 'https://study-planner-ibll.onrender.com/api'
 
 function minutesBetween(start, end) {
   const [sh, sm] = start.split(':').map(Number)

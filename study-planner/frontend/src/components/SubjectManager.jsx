@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const API_BASE = '/api'
+const API_BASE = 'https://study-planner-ibll.onrender.com/api'
 
 export default function SubjectManager() {
   const [data, setData] = useState({ makaut: [], gate: [], placement: [], coding: [], custom: [] })

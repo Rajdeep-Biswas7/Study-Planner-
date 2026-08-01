@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const API_BASE = '/api'
+const API_BASE = 'https://study-planner-ibll.onrender.com/api'
 
 function formatHrsMin(mins) {
   const h = Math.floor(mins / 60)

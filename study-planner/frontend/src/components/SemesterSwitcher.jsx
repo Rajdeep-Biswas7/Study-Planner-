@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const API_BASE = '/api'
+const API_BASE = 'https://study-planner-ibll.onrender.com/api'
 
 export default function SemesterSwitcher() {
   const [status, setStatus] = useState(null)
