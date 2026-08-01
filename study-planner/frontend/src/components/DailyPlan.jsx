@@ -31,6 +31,14 @@ function formatSecondsToHMS(totalSec) {
   return `${pad(mins)}:${pad(secs)}`
 }
 
+function buildTimerState(timer) {
+  return {
+    seconds: Number(timer.seconds) || 0,
+    isPaused: Boolean(timer.isPaused),
+    lastUpdatedAt: timer.lastUpdatedAt ? Number(timer.lastUpdatedAt) : Date.now()
+  }
+}
+
 export default function DailyPlan() {
   const [plan, setPlan] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -69,9 +77,15 @@ export default function DailyPlan() {
 
               const savedTimer = storedTimers[block.id]
               if (savedTimer) {
-                next[block.id] = {
-                  seconds: Number(savedTimer.seconds) || 0,
-                  isPaused: Boolean(savedTimer.isPaused)
+                if (!savedTimer.isPaused && block.actualStartTime) {
+                  const elapsedMs = Date.now() - new Date(block.actualStartTime).getTime()
+                  next[block.id] = {
+                    seconds: Math.max(0, Math.floor(elapsedMs / 1000)),
+                    isPaused: false,
+                    lastUpdatedAt: Date.now()
+                  }
+                } else {
+                  next[block.id] = buildTimerState(savedTimer)
                 }
                 return
               }
@@ -81,7 +95,11 @@ export default function DailyPlan() {
                 const elapsedMs = Date.now() - new Date(block.actualStartTime).getTime()
                 initialSec = Math.max(0, Math.floor(elapsedMs / 1000))
               }
-              next[block.id] = { seconds: initialSec, isPaused: false }
+              next[block.id] = {
+                seconds: initialSec,
+                isPaused: false,
+                lastUpdatedAt: Date.now()
+              }
             })
             return next
           })
@@ -105,14 +123,19 @@ export default function DailyPlan() {
   // Timer interval ticker
   useEffect(() => {
     const interval = setInterval(() => {
+      const now = Date.now()
       setTimers((prevTimers) => {
         let hasActive = false
         const next = { ...prevTimers }
-        Object.keys(next).forEach((blockId) => {
-          if (!next[blockId].isPaused) {
+        Object.entries(prevTimers).forEach(([blockId, timer]) => {
+          if (timer.isPaused) return
+          const lastUpdatedAt = timer.lastUpdatedAt || now
+          const delta = Math.max(0, Math.floor((now - lastUpdatedAt) / 1000))
+          if (delta > 0) {
             next[blockId] = {
-              ...next[blockId],
-              seconds: next[blockId].seconds + 1
+              ...timer,
+              seconds: timer.seconds + delta,
+              lastUpdatedAt: now
             }
             hasActive = true
           }
@@ -134,16 +157,31 @@ export default function DailyPlan() {
     setPlan(updated)
     setTimers((prev) => ({
       ...prev,
-      [blockId]: { seconds: 0, isPaused: false }
+      [blockId]: { seconds: 0, isPaused: false, lastUpdatedAt: Date.now() }
     }))
   }
 
   function handleTogglePause(blockId) {
     setTimers((prev) => {
-      const current = prev[blockId] || { seconds: 0, isPaused: false }
+      const current = prev[blockId] || { seconds: 0, isPaused: false, lastUpdatedAt: Date.now() }
+      const now = Date.now()
+
+      if (current.isPaused) {
+        return {
+          ...prev,
+          [blockId]: { ...current, isPaused: false, lastUpdatedAt: now }
+        }
+      }
+
+      const delta = Math.max(0, Math.floor((now - (current.lastUpdatedAt || now)) / 1000))
       return {
         ...prev,
-        [blockId]: { ...current, isPaused: !current.isPaused }
+        [blockId]: {
+          ...current,
+          isPaused: true,
+          seconds: current.seconds + delta,
+          lastUpdatedAt: now
+        }
       }
     })
   }
@@ -151,7 +189,7 @@ export default function DailyPlan() {
   function handleResetTimer(blockId) {
     setTimers((prev) => ({
       ...prev,
-      [blockId]: { seconds: 0, isPaused: false }
+      [blockId]: { seconds: 0, isPaused: false, lastUpdatedAt: Date.now() }
     }))
   }
 

@@ -116,7 +116,11 @@ export function updateSubject(subjectId, updates) {
 
 export function deleteSubject(subjectId) {
   const data = loadSubjectData()
+  const beforeCount = data.evergreen.length
   data.evergreen = data.evergreen.filter(s => s.id !== subjectId)
+  if (data.evergreen.length === beforeCount) {
+    return false
+  }
   saveSubjectData()
   return true
 }

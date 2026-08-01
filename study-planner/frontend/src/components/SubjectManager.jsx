@@ -7,6 +7,8 @@ export default function SubjectManager() {
   const [data, setData] = useState({ makaut: [], gate: [], placement: [], coding: [], custom: [] })
   const [activeTab, setActiveTab] = useState('makaut')
   const [loading, setLoading] = useState(true)
+  const [statusMessage, setStatusMessage] = useState('')
+  const [statusType, setStatusType] = useState('success')
   
   // Topic adding state
   const [addingTopicFor, setAddingTopicFor] = useState(null)
@@ -83,6 +85,14 @@ export default function SubjectManager() {
     loadSubjects()
   }
 
+  function showStatus(message, type = 'success') {
+    setStatusMessage(message)
+    setStatusType(type)
+    window.setTimeout(() => {
+      setStatusMessage('')
+    }, 4000)
+  }
+
   async function handleExtractSyllabus() {
     if (!syllabusText.trim()) return
     setExtracting(true)
@@ -135,6 +145,11 @@ export default function SubjectManager() {
           <h2 className="font-display text-2xl sm:text-3xl font-semibold text-linen">
             Syllabus Topic Breakdown
           </h2>
+          {statusMessage && (
+            <div className={`mt-3 inline-flex rounded-full px-4 py-2 text-xs font-medium ${statusType === 'success' ? 'bg-teal/10 text-teal' : 'bg-rollover/10 text-rollover'}`}>
+              {statusMessage}
+            </div>
+          )}
         </div>
         <div className="flex flex-col sm:flex-row gap-2">
           <button
@@ -200,15 +215,38 @@ export default function SubjectManager() {
                       {done} of {total} topics completed ({pct}%)
                     </p>
                   </div>
-                  <button
-                    onClick={() => {
-                      setExtractSubjectId(subject.id)
-                      setShowSyllabusExtract(true)
-                    }}
-                    className="text-xs text-teal hover:underline"
-                  >
-                    + Extract topics with AI
-                  </button>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <button
+                      onClick={() => {
+                        setExtractSubjectId(subject.id)
+                        setShowSyllabusExtract(true)
+                      }}
+                      className="text-xs text-teal hover:underline"
+                    >
+                      + Extract topics with AI
+                    </button>
+                    {activeTab === 'custom' && (
+                      <button
+                        onClick={async () => {
+                          if (!window.confirm('Delete this subject and all its topics?')) return
+                          const res = await fetch(`${API_BASE}/subjects/${subject.id}`, {
+                            method: 'DELETE'
+                          })
+                          if (res.ok) {
+                            loadSubjects()
+                            showStatus('Subject deleted successfully.', 'success')
+                          } else {
+                            const text = await res.text()
+                            showStatus('Unable to delete subject. Please try again.', 'error')
+                            console.error('Failed to delete subject', text)
+                          }
+                        }}
+                        className="text-xs text-rollover hover:underline"
+                      >
+                        Delete Subject
+                      </button>
+                    )}
+                  </div>
                 </div>
 
                 {/* Progress bar */}
