@@ -60,7 +60,7 @@ export async function callGemini({ system, prompt, maxTokens = 400 }) {
 }
 
 // Multi-turn conversation support
-export async function callClaudeChat({ system, messages, maxTokens = 800 }) {
+export async function callGeminiChat({ system, messages, maxTokens = 800 }) {
   const apiKey = getGeminiApiKey()
   if (!apiKey) {
     console.warn('[ai] GEMINI_API_KEY/GOOGLE_API_KEY not set — skipping AI call.')

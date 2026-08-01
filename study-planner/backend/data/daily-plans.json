@@ -16,10 +16,10 @@
         "endTime": "11:00",
         "plannedMinutes": 90,
         "rolledOverMinutes": 0,
-        "status": "in-progress",
+        "status": "completed",
         "actualStartTime": "2026-08-01T06:09:14.317Z",
-        "actualEndTime": null,
-        "actualMinutes": 0
+        "actualEndTime": "2026-08-01T08:38:33.707Z",
+        "actualMinutes": 149
       },
       {
         "id": "2026-08-01-1",

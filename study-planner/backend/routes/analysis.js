@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import { getTodayDateString, generateTodayPlan } from '../lib/scheduler.js'
 import { getSubjectProgress } from '../lib/store.js'
-import { callClaude } from '../../ai/claudeClient.js'
+import { callGemini } from '../../ai/geminiClient.js'
 
 const router = Router()
 
@@ -30,7 +30,7 @@ Provide a structured, encouraging, and actionable daily review covering:
 4. **Actionable Suggestions for Tomorrow**: Specific adjustments to timetable or study habits.`
 
   const system = 'You are an elite academic productivity analyst for B.Tech CSE/IT students.'
-  const aiAnalysis = await callClaude({ system, prompt, maxTokens: 800 })
+  const aiAnalysis = await callGemini({ system, prompt, maxTokens: 800 })
 
   res.json({
     date: dateStr,

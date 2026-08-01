@@ -8,7 +8,7 @@ import {
   updateTopic,
   deleteTopic
 } from '../lib/store.js'
-import { callClaude } from '../../ai/claudeClient.js'
+import { callGemini } from '../../ai/geminiClient.js'
 
 const router = Router()
 
@@ -81,7 +81,7 @@ Syllabus Text:
 ${text}`
 
   const system = 'You are an expert academic syllabus analyzer for Computer Science & Engineering / IT B.Tech courses.'
-  const reply = await callClaude({ system, prompt, maxTokens: 800 })
+  const reply = await callGemini({ system, prompt, maxTokens: 800 })
 
   if (!reply) {
     // Fallback: split text by lines or numbers

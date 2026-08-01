@@ -1,9 +1,4 @@
-import { callGemini } from './geminiClient.js'
-
-export async function callClaude({ system, prompt, maxTokens = 800 }) {
-  return callGemini({ system, prompt, maxTokens })
-}
-
-export async function callClaudeChat({ system, messages, maxTokens = 800 }) {
-  return callGemini({ system, prompt: messages.at(-1)?.content ?? '', maxTokens })
+// Legacy Claude shim removed. The project now uses Gemini only.
+export async function callClaude() {
+  return null
 }

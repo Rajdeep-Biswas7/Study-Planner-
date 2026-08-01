@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { callClaudeChat } from '../../ai/geminiClient.js'
+import { callGeminiChat } from '../../ai/geminiClient.js'
 import { getSubjectProgress, getActiveSemester } from '../lib/store.js'
 import { getTodayDateString, generateTodayPlan } from '../lib/scheduler.js'
 
@@ -45,7 +45,7 @@ YOUR INSTRUCTIONS:
 4. Keep formatting clean with standard markdown formatting, bold text, bullet points, and code snippets where relevant.
 5. Be encouraging yet realistic about time management.`
 
-  const reply = await callClaudeChat({ system, messages, maxTokens: 1000 })
+  const reply = await callGeminiChat({ system, messages, maxTokens: 1000 })
 
   if (!reply) {
     return res.json({

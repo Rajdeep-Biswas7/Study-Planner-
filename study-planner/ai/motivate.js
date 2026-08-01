@@ -13,7 +13,7 @@ was a rollover note (missed study time from yesterday), acknowledge it
 directly and firmly rather than ignoring it — but stay encouraging, not
 guilt-tripping. Return only the line, no quotes, no preamble.`
 
-  const text = await callClaude({
+  const text = await callGemini({
     system: 'You are a calm, direct study coach. No emojis, no fluff.',
     prompt,
     maxTokens: 100
