@@ -1,0 +1,911 @@
+{
+  "semesters": [
+    {
+      "id": "sem5",
+      "name": "5th Sem",
+      "number": 5,
+      "status": "active",
+      "subjects": [
+        {
+          "id": "dbms",
+          "name": "Database Management Systems",
+          "category": "makaut",
+          "topics": [
+            {
+              "id": "dbms-t1",
+              "name": "ER Model & ER Diagrams",
+              "completed": false
+            },
+            {
+              "id": "dbms-t2",
+              "name": "Relational Model",
+              "completed": false
+            },
+            {
+              "id": "dbms-t3",
+              "name": "SQL – DDL, DML, DCL",
+              "completed": false
+            },
+            {
+              "id": "dbms-t4",
+              "name": "Normalization (1NF–BCNF)",
+              "completed": false
+            },
+            {
+              "id": "dbms-t5",
+              "name": "Transactions & Concurrency Control",
+              "completed": false
+            },
+            {
+              "id": "dbms-t6",
+              "name": "Indexing & Hashing",
+              "completed": false
+            },
+            {
+              "id": "dbms-t7",
+              "name": "Query Processing & Optimization",
+              "completed": false
+            },
+            {
+              "id": "dbms-t8",
+              "name": "File Organization",
+              "completed": false
+            },
+            {
+              "id": "dbms-t9",
+              "name": "Relational Algebra & Calculus",
+              "completed": false
+            },
+            {
+              "id": "dbms-t10",
+              "name": "NoSQL Basics",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "id": "os",
+          "name": "Operating Systems",
+          "category": "makaut",
+          "topics": [
+            {
+              "id": "os-t1",
+              "name": "Process Management",
+              "completed": false
+            },
+            {
+              "id": "os-t2",
+              "name": "CPU Scheduling Algorithms",
+              "completed": false
+            },
+            {
+              "id": "os-t3",
+              "name": "Process Synchronization",
+              "completed": false
+            },
+            {
+              "id": "os-t4",
+              "name": "Deadlocks",
+              "completed": false
+            },
+            {
+              "id": "os-t5",
+              "name": "Memory Management",
+              "completed": false
+            },
+            {
+              "id": "os-t6",
+              "name": "Virtual Memory & Paging",
+              "completed": false
+            },
+            {
+              "id": "os-t7",
+              "name": "File Systems",
+              "completed": false
+            },
+            {
+              "id": "os-t8",
+              "name": "I/O Management",
+              "completed": false
+            },
+            {
+              "id": "os-t9",
+              "name": "Protection & Security",
+              "completed": false
+            },
+            {
+              "id": "os-t10",
+              "name": "Disk Scheduling",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "id": "cn",
+          "name": "Computer Networks",
+          "category": "makaut",
+          "topics": [
+            {
+              "id": "cn-t1",
+              "name": "OSI & TCP/IP Model",
+              "completed": false
+            },
+            {
+              "id": "cn-t2",
+              "name": "Physical Layer & Transmission Media",
+              "completed": false
+            },
+            {
+              "id": "cn-t3",
+              "name": "Data Link Layer & Error Detection",
+              "completed": false
+            },
+            {
+              "id": "cn-t4",
+              "name": "Network Layer & Routing Algorithms",
+              "completed": false
+            },
+            {
+              "id": "cn-t5",
+              "name": "Transport Layer – TCP & UDP",
+              "completed": false
+            },
+            {
+              "id": "cn-t6",
+              "name": "Congestion Control",
+              "completed": false
+            },
+            {
+              "id": "cn-t7",
+              "name": "Application Layer – HTTP, DNS, SMTP",
+              "completed": false
+            },
+            {
+              "id": "cn-t8",
+              "name": "Network Security & Firewalls",
+              "completed": false
+            },
+            {
+              "id": "cn-t9",
+              "name": "Wireless & Mobile Networks",
+              "completed": false
+            },
+            {
+              "id": "cn-t10",
+              "name": "Subnetting & IP Addressing",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "id": "web-tech",
+          "name": "Web Technology",
+          "category": "makaut",
+          "topics": [
+            {
+              "id": "wt-t1",
+              "name": "HTML5 & Semantic Elements",
+              "completed": false
+            },
+            {
+              "id": "wt-t2",
+              "name": "CSS3 & Flexbox/Grid",
+              "completed": false
+            },
+            {
+              "id": "wt-t3",
+              "name": "JavaScript Fundamentals",
+              "completed": false
+            },
+            {
+              "id": "wt-t4",
+              "name": "DOM Manipulation & Events",
+              "completed": false
+            },
+            {
+              "id": "wt-t8",
+              "name": "Web Security Basics",
+              "completed": false
+            },
+            {
+              "id": "web-tech-t1785564228917",
+              "name": "Node js",
+              "completed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sem6",
+      "name": "6th Sem",
+      "number": 6,
+      "status": "upcoming",
+      "subjects": [
+        {
+          "id": "compiler",
+          "name": "Compiler Design",
+          "category": "makaut",
+          "topics": [
+            {
+              "id": "cd-t1",
+              "name": "Lexical Analysis & Tokens",
+              "completed": false
+            },
+            {
+              "id": "cd-t2",
+              "name": "Syntax Analysis & Parsing",
+              "completed": false
+            },
+            {
+              "id": "cd-t3",
+              "name": "Top-Down Parsing (LL)",
+              "completed": false
+            },
+            {
+              "id": "cd-t4",
+              "name": "Bottom-Up Parsing (LR, SLR, LALR)",
+              "completed": false
+            },
+            {
+              "id": "cd-t5",
+              "name": "Syntax-Directed Translation",
+              "completed": false
+            },
+            {
+              "id": "cd-t6",
+              "name": "Intermediate Code Generation",
+              "completed": false
+            },
+            {
+              "id": "cd-t7",
+              "name": "Code Optimization",
+              "completed": false
+            },
+            {
+              "id": "cd-t8",
+              "name": "Code Generation",
+              "completed": false
+            },
+            {
+              "id": "cd-t9",
+              "name": "Symbol Table Management",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "id": "ml",
+          "name": "Machine Learning",
+          "category": "makaut",
+          "topics": [
+            {
+              "id": "ml-t1",
+              "name": "Linear Regression",
+              "completed": false
+            },
+            {
+              "id": "ml-t2",
+              "name": "Logistic Regression",
+              "completed": false
+            },
+            {
+              "id": "ml-t3",
+              "name": "Decision Trees & Random Forest",
+              "completed": false
+            },
+            {
+              "id": "ml-t4",
+              "name": "Support Vector Machines",
+              "completed": false
+            },
+            {
+              "id": "ml-t5",
+              "name": "K-Nearest Neighbors",
+              "completed": false
+            },
+            {
+              "id": "ml-t6",
+              "name": "Neural Networks & Backpropagation",
+              "completed": false
+            },
+            {
+              "id": "ml-t7",
+              "name": "Clustering (K-Means, DBSCAN)",
+              "completed": false
+            },
+            {
+              "id": "ml-t8",
+              "name": "Dimensionality Reduction (PCA)",
+              "completed": false
+            },
+            {
+              "id": "ml-t9",
+              "name": "Ensemble Methods",
+              "completed": false
+            },
+            {
+              "id": "ml-t10",
+              "name": "Model Evaluation & Cross-Validation",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "id": "se",
+          "name": "Software Engineering",
+          "category": "makaut",
+          "topics": [
+            {
+              "id": "se-t1",
+              "name": "SDLC Models (Waterfall, Spiral, Agile)",
+              "completed": false
+            },
+            {
+              "id": "se-t2",
+              "name": "Requirements Engineering",
+              "completed": false
+            },
+            {
+              "id": "se-t3",
+              "name": "Software Design Principles",
+              "completed": false
+            },
+            {
+              "id": "se-t4",
+              "name": "UML Diagrams",
+              "completed": false
+            },
+            {
+              "id": "se-t5",
+              "name": "Software Testing (Unit, Integration, System)",
+              "completed": false
+            },
+            {
+              "id": "se-t6",
+              "name": "Project Management & Estimation",
+              "completed": false
+            },
+            {
+              "id": "se-t7",
+              "name": "Software Quality Assurance",
+              "completed": false
+            },
+            {
+              "id": "se-t8",
+              "name": "Agile & Scrum Methodology",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "id": "cg",
+          "name": "Computer Graphics",
+          "category": "makaut",
+          "topics": [
+            {
+              "id": "cg-t1",
+              "name": "Line Drawing Algorithms (DDA, Bresenham)",
+              "completed": false
+            },
+            {
+              "id": "cg-t2",
+              "name": "Circle Drawing Algorithms",
+              "completed": false
+            },
+            {
+              "id": "cg-t3",
+              "name": "2D Transformations",
+              "completed": false
+            },
+            {
+              "id": "cg-t4",
+              "name": "3D Transformations",
+              "completed": false
+            },
+            {
+              "id": "cg-t5",
+              "name": "Windowing & Clipping",
+              "completed": false
+            },
+            {
+              "id": "cg-t6",
+              "name": "Projection (Parallel & Perspective)",
+              "completed": false
+            },
+            {
+              "id": "cg-t7",
+              "name": "Visible Surface Detection",
+              "completed": false
+            },
+            {
+              "id": "cg-t8",
+              "name": "Color Models & Shading",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "id": "infosec",
+          "name": "Information Security",
+          "category": "makaut",
+          "topics": [
+            {
+              "id": "is-t1",
+              "name": "Cryptography Fundamentals",
+              "completed": false
+            },
+            {
+              "id": "is-t2",
+              "name": "Symmetric Key Algorithms (DES, AES)",
+              "completed": false
+            },
+            {
+              "id": "is-t3",
+              "name": "Asymmetric Key (RSA, Diffie-Hellman)",
+              "completed": false
+            },
+            {
+              "id": "is-t4",
+              "name": "Hash Functions & Digital Signatures",
+              "completed": false
+            },
+            {
+              "id": "is-t5",
+              "name": "Network Security Protocols (SSL/TLS)",
+              "completed": false
+            },
+            {
+              "id": "is-t6",
+              "name": "Firewalls & Intrusion Detection",
+              "completed": false
+            },
+            {
+              "id": "is-t7",
+              "name": "Cyber Attacks & Countermeasures",
+              "completed": false
+            },
+            {
+              "id": "is-t8",
+              "name": "Email & Web Security",
+              "completed": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "evergreen": [
+    {
+      "id": "gate-algo",
+      "name": "Algorithms",
+      "category": "gate",
+      "topics": [
+        {
+          "id": "algo-t1",
+          "name": "Time & Space Complexity Analysis",
+          "completed": false
+        },
+        {
+          "id": "algo-t2",
+          "name": "Sorting Algorithms",
+          "completed": false
+        },
+        {
+          "id": "algo-t3",
+          "name": "Searching Algorithms",
+          "completed": false
+        },
+        {
+          "id": "algo-t4",
+          "name": "Divide & Conquer",
+          "completed": false
+        },
+        {
+          "id": "algo-t5",
+          "name": "Greedy Algorithms",
+          "completed": false
+        },
+        {
+          "id": "algo-t6",
+          "name": "Dynamic Programming",
+          "completed": false
+        },
+        {
+          "id": "algo-t7",
+          "name": "Graph Algorithms (BFS, DFS, Dijkstra, MST)",
+          "completed": false
+        },
+        {
+          "id": "algo-t8",
+          "name": "Backtracking",
+          "completed": false
+        },
+        {
+          "id": "algo-t9",
+          "name": "String Matching (KMP, Rabin-Karp)",
+          "completed": false
+        },
+        {
+          "id": "algo-t10",
+          "name": "NP-Completeness",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "gate-toc",
+      "name": "Theory of Computation",
+      "category": "gate",
+      "topics": [
+        {
+          "id": "toc-t1",
+          "name": "Finite Automata (DFA, NFA)",
+          "completed": false
+        },
+        {
+          "id": "toc-t2",
+          "name": "Regular Expressions & Languages",
+          "completed": false
+        },
+        {
+          "id": "toc-t3",
+          "name": "Context-Free Grammars",
+          "completed": false
+        },
+        {
+          "id": "toc-t4",
+          "name": "Pushdown Automata",
+          "completed": false
+        },
+        {
+          "id": "toc-t5",
+          "name": "Turing Machines",
+          "completed": false
+        },
+        {
+          "id": "toc-t6",
+          "name": "Decidability & Undecidability",
+          "completed": false
+        },
+        {
+          "id": "toc-t7",
+          "name": "Complexity Classes (P, NP, NP-Hard)",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "gate-coa",
+      "name": "Computer Organization & Architecture",
+      "category": "gate",
+      "topics": [
+        {
+          "id": "coa-t1",
+          "name": "Number Systems & Data Representation",
+          "completed": false
+        },
+        {
+          "id": "coa-t2",
+          "name": "ALU Design & Arithmetic Circuits",
+          "completed": false
+        },
+        {
+          "id": "coa-t3",
+          "name": "Instruction Set Architecture",
+          "completed": false
+        },
+        {
+          "id": "coa-t4",
+          "name": "CPU Design & Microprogramming",
+          "completed": false
+        },
+        {
+          "id": "coa-t5",
+          "name": "Pipelining & Hazards",
+          "completed": false
+        },
+        {
+          "id": "coa-t6",
+          "name": "Memory Hierarchy & Cache",
+          "completed": false
+        },
+        {
+          "id": "coa-t7",
+          "name": "I/O Organization & DMA",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "gate-dl",
+      "name": "Digital Logic",
+      "category": "gate",
+      "topics": [
+        {
+          "id": "dl-t1",
+          "name": "Boolean Algebra & Logic Gates",
+          "completed": false
+        },
+        {
+          "id": "dl-t2",
+          "name": "K-Maps & Minimization",
+          "completed": false
+        },
+        {
+          "id": "dl-t3",
+          "name": "Combinational Circuits (Mux, Decoder, Adder)",
+          "completed": false
+        },
+        {
+          "id": "dl-t4",
+          "name": "Sequential Circuits (Flip-Flops, Counters)",
+          "completed": false
+        },
+        {
+          "id": "dl-t5",
+          "name": "Registers & Memory",
+          "completed": false
+        },
+        {
+          "id": "dl-t6",
+          "name": "Finite State Machines",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "gate-dm",
+      "name": "Discrete Mathematics",
+      "category": "gate",
+      "topics": [
+        {
+          "id": "dm-t1",
+          "name": "Propositional & Predicate Logic",
+          "completed": false
+        },
+        {
+          "id": "dm-t2",
+          "name": "Sets, Relations & Functions",
+          "completed": false
+        },
+        {
+          "id": "dm-t3",
+          "name": "Combinatorics",
+          "completed": false
+        },
+        {
+          "id": "dm-t4",
+          "name": "Graph Theory",
+          "completed": false
+        },
+        {
+          "id": "dm-t5",
+          "name": "Group Theory & Lattices",
+          "completed": false
+        },
+        {
+          "id": "dm-t6",
+          "name": "Recurrence Relations",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "gate-math",
+      "name": "Engineering Mathematics",
+      "category": "gate",
+      "topics": [
+        {
+          "id": "em-t1",
+          "name": "Linear Algebra (Matrices, Eigenvalues)",
+          "completed": false
+        },
+        {
+          "id": "em-t2",
+          "name": "Probability & Statistics",
+          "completed": false
+        },
+        {
+          "id": "em-t3",
+          "name": "Calculus (Limits, Integrals)",
+          "completed": false
+        },
+        {
+          "id": "em-t4",
+          "name": "Numerical Methods",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "placement-dsa",
+      "name": "DSA (Placement)",
+      "category": "placement",
+      "topics": [
+        {
+          "id": "dsa-t1",
+          "name": "Arrays & Strings",
+          "completed": false
+        },
+        {
+          "id": "dsa-t2",
+          "name": "Linked Lists",
+          "completed": false
+        },
+        {
+          "id": "dsa-t3",
+          "name": "Stacks & Queues",
+          "completed": false
+        },
+        {
+          "id": "dsa-t4",
+          "name": "Trees (Binary, BST, AVL)",
+          "completed": false
+        },
+        {
+          "id": "dsa-t5",
+          "name": "Heaps & Priority Queues",
+          "completed": false
+        },
+        {
+          "id": "dsa-t6",
+          "name": "Graphs (BFS, DFS, Shortest Path)",
+          "completed": false
+        },
+        {
+          "id": "dsa-t7",
+          "name": "Hashing & Hash Maps",
+          "completed": false
+        },
+        {
+          "id": "dsa-t8",
+          "name": "Recursion & Backtracking",
+          "completed": false
+        },
+        {
+          "id": "dsa-t9",
+          "name": "DP Patterns (Knapsack, LCS, LIS)",
+          "completed": false
+        },
+        {
+          "id": "dsa-t10",
+          "name": "Bit Manipulation",
+          "completed": false
+        },
+        {
+          "id": "dsa-t11",
+          "name": "Sliding Window & Two Pointers",
+          "completed": false
+        },
+        {
+          "id": "dsa-t12",
+          "name": "Trie & Segment Trees",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "placement-sql",
+      "name": "SQL (Placement)",
+      "category": "placement",
+      "topics": [
+        {
+          "id": "sql-t1",
+          "name": "Basic Queries (SELECT, WHERE, ORDER BY)",
+          "completed": false
+        },
+        {
+          "id": "sql-t2",
+          "name": "Joins (INNER, LEFT, RIGHT, FULL)",
+          "completed": false
+        },
+        {
+          "id": "sql-t3",
+          "name": "Subqueries & CTEs",
+          "completed": false
+        },
+        {
+          "id": "sql-t4",
+          "name": "Window Functions (ROW_NUMBER, RANK)",
+          "completed": false
+        },
+        {
+          "id": "sql-t5",
+          "name": "Aggregations (GROUP BY, HAVING)",
+          "completed": false
+        },
+        {
+          "id": "sql-t6",
+          "name": "Indexing & Query Optimization",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "fullstack",
+      "name": "Full-Stack Development",
+      "category": "coding",
+      "topics": [
+        {
+          "id": "fs-t1",
+          "name": "React Fundamentals & Hooks",
+          "completed": false
+        },
+        {
+          "id": "fs-t2",
+          "name": "State Management (Context, Redux)",
+          "completed": false
+        },
+        {
+          "id": "fs-t3",
+          "name": "TypeScript Basics",
+          "completed": false
+        },
+        {
+          "id": "fs-t4",
+          "name": "Node.js & Express",
+          "completed": false
+        },
+        {
+          "id": "fs-t5",
+          "name": "REST API Design",
+          "completed": false
+        },
+        {
+          "id": "fs-t6",
+          "name": "Authentication (JWT, OAuth)",
+          "completed": false
+        },
+        {
+          "id": "fs-t7",
+          "name": "Database Design (SQL + NoSQL)",
+          "completed": false
+        },
+        {
+          "id": "fs-t8",
+          "name": "Deployment & CI/CD",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "specialize",
+      "name": "Agentic AI / DevOps",
+      "category": "coding",
+      "topics": [
+        {
+          "id": "sp-t1",
+          "name": "Docker & Containerization",
+          "completed": false
+        },
+        {
+          "id": "sp-t2",
+          "name": "Kubernetes Basics",
+          "completed": false
+        },
+        {
+          "id": "sp-t3",
+          "name": "LLM APIs & Prompt Engineering",
+          "completed": false
+        },
+        {
+          "id": "sp-t4",
+          "name": "AI Agent Frameworks (LangChain)",
+          "completed": false
+        },
+        {
+          "id": "sp-t5",
+          "name": "RAG & Vector Databases",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "custom-1785564291425",
+      "name": "C fundamentals",
+      "category": "gate",
+      "topics": []
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "2026-08-01": {
+    "date": "2026-08-01",
+    "dateLabel": "Saturday, 1 August",
+    "isOffDay": false,
+    "isLightDay": false,
+    "eventName": null,
+    "rolloverNote": null,
+    "blocks": [
+      {
+        "id": "2026-08-01-0",
+        "subjectId": "cn",
+        "subjectName": "Computer Networks",
+        "topic": "OSI & TCP/IP Model",
+        "startTime": "09:30",
+        "endTime": "11:00",
+        "plannedMinutes": 90,
+        "rolledOverMinutes": 0,
+        "status": "in-progress",
+        "actualStartTime": "2026-08-01T06:09:14.317Z",
+        "actualEndTime": null,
+        "actualMinutes": 0
+      },
+      {
+        "id": "2026-08-01-1",
+        "subjectId": "web-tech",
+        "subjectName": "Web Technology",
+        "topic": "HTML5 & Semantic Elements",
+        "startTime": "12:00",
+        "endTime": "14:00",
+        "plannedMinutes": 120,
+        "rolledOverMinutes": 0,
+        "status": "pending",
+        "actualStartTime": null,
+        "actualEndTime": null,
+        "actualMinutes": 0
+      },
+      {
+        "id": "2026-08-01-2",
+        "subjectId": "gate-algo",
+        "subjectName": "Algorithms",
+        "topic": "Time & Space Complexity Analysis",
+        "startTime": "19:00",
+        "endTime": "20:30",
+        "plannedMinutes": 90,
+        "rolledOverMinutes": 0,
+        "status": "pending",
+        "actualStartTime": null,
+        "actualEndTime": null,
+        "actualMinutes": 0
+      },
+      {
+        "id": "2026-08-01-3",
+        "subjectId": "gate-toc",
+        "subjectName": "Theory of Computation",
+        "topic": "Finite Automata (DFA, NFA)",
+        "startTime": "21:00",
+        "endTime": "22:00",
+        "plannedMinutes": 60,
+        "rolledOverMinutes": 0,
+        "status": "pending",
+        "actualStartTime": null,
+        "actualEndTime": null,
+        "actualMinutes": 0
+      },
+      {
+        "id": "2026-08-01-4",
+        "subjectId": "gate-coa",
+        "subjectName": "Computer Organization & Architecture",
+        "topic": "Number Systems & Data Representation",
+        "startTime": "12:00",
+        "endTime": "02:00",
+        "plannedMinutes": 0,
+        "rolledOverMinutes": 0,
+        "status": "pending",
+        "actualStartTime": null,
+        "actualEndTime": null,
+        "actualMinutes": 0
+      }
+    ],
+    "motivationalNote": null
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "dailyGoalMinutes": 360,
+  "lightGoalMinutes": 120,
+  "rolloverCapMinutes": 180,
+  "slots": {
+    "normal": [
+      {
+        "startTime": "09:30",
+        "endTime": "11:00",
+        "minutes": 90
+      },
+      {
+        "startTime": "12:00",
+        "endTime": "14:00",
+        "minutes": 120
+      },
+      {
+        "startTime": "19:00",
+        "endTime": "20:30",
+        "minutes": 90
+      },
+      {
+        "startTime": "21:00",
+        "endTime": "22:00",
+        "minutes": 60
+      },
+      {
+        "startTime": "12:00",
+        "endTime": "02:00",
+        "minutes": 0
+      }
+    ],
+    "light": [
+      {
+        "startTime": "07:00",
+        "endTime": "08:00",
+        "minutes": 60
+      },
+      {
+        "startTime": "20:00",
+        "endTime": "21:00",
+        "minutes": 60
+      }
+    ]
+  }
+}
