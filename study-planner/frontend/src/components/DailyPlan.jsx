@@ -43,6 +43,7 @@ export default function DailyPlan() {
   const [plan, setPlan] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [actionMessage, setActionMessage] = useState('')
 
   // Local state for active timers: keyed by blockId -> { seconds: number, isPaused: boolean }
   const [timers, setTimers] = useState(() => readStoredTimers())
@@ -232,6 +233,8 @@ export default function DailyPlan() {
     const updated = await res.json()
     setPlan(updated)
     setEditingBlock(null)
+    setActionMessage('Study block updated successfully')
+    window.setTimeout(() => setActionMessage(''), 2500)
   }
 
   async function handleAddExtraBlock() {
@@ -251,6 +254,25 @@ export default function DailyPlan() {
     setExtraTopic('')
   }
 
+  async function handleDeleteBlock() {
+    if (!editingBlock) return
+    if (!window.confirm('Delete this study block?')) return
+
+    const res = await fetch(`${API_BASE}/plan/block/${editingBlock.id}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dateStr: plan.date })
+    })
+
+    if (!res.ok) return
+
+    const updated = await res.json()
+    setPlan(updated)
+    setEditingBlock(null)
+    setActionMessage('Study block deleted successfully')
+    window.setTimeout(() => setActionMessage(''), 2500)
+  }
+
   if (loading) return <p className="font-body text-linen/60 px-4 sm:px-6">Loading today's plan…</p>
   if (error) return <p className="font-body text-rollover px-4 sm:px-6">{error}</p>
   if (!plan) return null
@@ -259,6 +281,11 @@ export default function DailyPlan() {
     <section id="plan" className="px-4 sm:px-6 md:px-10 lg:px-16 py-6 sm:py-8 max-w-5xl mx-auto font-body">
       {/* Header section with mobile responsive flex */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center justify-between mb-6">
+        {actionMessage && (
+          <div className="w-full rounded-full border border-teal/30 bg-teal/10 px-4 py-2 text-sm text-teal">
+            {actionMessage}
+          </div>
+        )}
         <div>
           <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-marigold font-semibold mb-1">
             {plan.isLightDay ? 'Light day — festival adjusted' : "Today's Timetable"}
@@ -528,19 +555,27 @@ export default function DailyPlan() {
                   className="w-full rounded-xl border border-linen/15 bg-ink px-3.5 py-2.5 text-sm text-linen"
                 />
               </div>
-              <div className="flex justify-end gap-3 pt-2">
+              <div className="flex justify-between gap-3 pt-2">
                 <button
-                  onClick={() => setEditingBlock(null)}
-                  className="rounded-full px-4 py-2 text-xs font-medium text-linen/60 hover:text-linen"
+                  onClick={handleDeleteBlock}
+                  className="rounded-full px-4 py-2 text-xs font-medium text-rollover hover:text-rollover/80"
                 >
-                  Cancel
+                  Delete Block
                 </button>
-                <button
-                  onClick={handleSaveEdit}
-                  className="rounded-full bg-marigold px-5 py-2.5 text-xs font-bold text-ink hover:opacity-90"
-                >
-                  Save Changes
-                </button>
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => setEditingBlock(null)}
+                    className="rounded-full px-4 py-2 text-xs font-medium text-linen/60 hover:text-linen"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={handleSaveEdit}
+                    className="rounded-full bg-marigold px-5 py-2.5 text-xs font-bold text-ink hover:opacity-90"
+                  >
+                    Save Changes
+                  </button>
+                </div>
               </div>
             </motion.div>
           </motion.div>

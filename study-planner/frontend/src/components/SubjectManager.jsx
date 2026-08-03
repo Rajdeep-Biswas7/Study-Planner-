@@ -225,27 +225,26 @@ export default function SubjectManager() {
                     >
                       + Extract topics with AI
                     </button>
-                    {activeTab === 'custom' && (
-                      <button
-                        onClick={async () => {
-                          if (!window.confirm('Delete this subject and all its topics?')) return
-                          const res = await fetch(`${API_BASE}/subjects/${subject.id}`, {
-                            method: 'DELETE'
-                          })
-                          if (res.ok) {
-                            loadSubjects()
-                            showStatus('Subject deleted successfully.', 'success')
-                          } else {
-                            const text = await res.text()
-                            showStatus('Unable to delete subject. Please try again.', 'error')
-                            console.error('Failed to delete subject', text)
-                          }
-                        }}
-                        className="text-xs text-rollover hover:underline"
-                      >
-                        Delete Subject
-                      </button>
-                    )}
+                    <button
+                      onClick={async () => {
+                        if (!window.confirm('Delete this subject and all its topics?')) return
+                        const res = await fetch(`${API_BASE}/subjects/${subject.id}`, {
+                          method: 'DELETE'
+                        })
+                        if (res.ok) {
+                          loadSubjects()
+                          window.dispatchEvent(new Event('schedule:updated'))
+                          showStatus('Subject deleted successfully.', 'success')
+                        } else {
+                          const text = await res.text()
+                          showStatus('Unable to delete subject. Please try again.', 'error')
+                          console.error('Failed to delete subject', text)
+                        }
+                      }}
+                      className="text-xs text-rollover hover:underline"
+                    >
+                      Delete Subject
+                    </button>
                   </div>
                 </div>
 
