@@ -4,27 +4,81 @@
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { AsyncLocalStorage } from 'async_hooks'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const SOURCE_DATA_DIR = path.join(__dirname, '..', 'data')
 const DATA_DIR = process.env.VERCEL
   ? path.join('/tmp', 'data')
   : SOURCE_DATA_DIR
+const LOCK_FILE = '.json-write.lock'
+const userStorage = new AsyncLocalStorage()
 
-function ensureDir() {
-  if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true })
+function ensureDir(targetDir) {
+  if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true })
 }
 
-function filePath(name) {
-  return path.join(DATA_DIR, name)
+function normalizeUserId(userId) {
+  const value = String(userId || 'default').trim().toLowerCase()
+  const cleaned = value.replace(/[^a-z0-9._-]/g, '_')
+  return cleaned || 'default'
+}
+
+export function runWithUser(userId, fn) {
+  return userStorage.run(normalizeUserId(userId), fn)
+}
+
+export function getCurrentUserId() {
+  return userStorage.getStore() || 'default'
+}
+
+export function getDataFilePath(name, userId = getCurrentUserId()) {
+  const safeUserId = normalizeUserId(userId)
+  const targetDir = safeUserId === 'default'
+    ? DATA_DIR
+    : path.join(DATA_DIR, 'users', safeUserId)
+  ensureDir(targetDir)
+  return path.join(targetDir, name)
+}
+
+function withFileLock(fn) {
+  ensureDir(DATA_DIR)
+
+  const lockPath = path.join(DATA_DIR, LOCK_FILE)
+  const deadline = Date.now() + 5000
+
+  while (Date.now() < deadline) {
+    try {
+      const fd = fs.openSync(lockPath, 'wx')
+      try {
+        return fn()
+      } finally {
+        fs.closeSync(fd)
+        if (fs.existsSync(lockPath)) {
+          fs.unlinkSync(lockPath)
+        }
+      }
+    } catch (err) {
+      if (err.code !== 'EEXIST') throw err
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 25)
+    }
+  }
+
+  throw new Error('Timed out waiting for data file lock')
+}
+
+function writeAtomically(name, data, userId = getCurrentUserId()) {
+  const p = getDataFilePath(name, userId)
+  const tempPath = path.join(path.dirname(p), `${path.basename(name)}.tmp`)
+  fs.writeFileSync(tempPath, JSON.stringify(data, null, 2))
+  fs.renameSync(tempPath, p)
 }
 
 export function loadJSON(name, fallback = null) {
-  ensureDir()
-  const p = filePath(name)
+  const userId = getCurrentUserId()
+  const p = getDataFilePath(name, userId)
   
   if (!fs.existsSync(p)) {
-    // Check if source seed data exists in backend/data
     const sourcePath = path.join(SOURCE_DATA_DIR, name)
     if (fs.existsSync(sourcePath)) {
       try {
@@ -50,8 +104,10 @@ export function loadJSON(name, fallback = null) {
 }
 
 export function saveJSON(name, data) {
-  ensureDir()
-  fs.writeFileSync(filePath(name), JSON.stringify(data, null, 2))
+  withFileLock(() => {
+    const userId = getCurrentUserId()
+    writeAtomically(name, data, userId)
+  })
 }
 
 export function updateJSON(name, mutator, fallback = null) {

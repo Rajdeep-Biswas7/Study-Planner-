@@ -1,12 +1,26 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { state } from '../lib/store.js'
-import { clearCachedPlanForDate, generateTodayPlan, getTodayDateString } from '../lib/scheduler.js'
+import { clearCachedPlanForDate, generateTodayPlan, getTodayDateString, deleteBlock } from '../lib/scheduler.js'
 import { loadSettings, saveSettings } from '../lib/settingsStore.js'
 
 function cloneSettings(settings) {
   return JSON.parse(JSON.stringify(settings))
 }
+
+test('deleting a block removes it from the plan', () => {
+  const today = getTodayDateString()
+  const plan = generateTodayPlan(today)
+  const firstBlockId = plan.blocks[0].id
+
+  const updated = deleteBlock(today, firstBlockId)
+
+  assert.ok(updated)
+  assert.ok(!updated.blocks.some((block) => block.id === firstBlockId))
+
+  clearCachedPlanForDate(today)
+  delete state.dailyPlans[today]
+})
 
 test('saving settings clears the cached today plan so the schedule refreshes', () => {
   const today = getTodayDateString()

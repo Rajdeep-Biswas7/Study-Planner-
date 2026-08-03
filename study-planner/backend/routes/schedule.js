@@ -5,7 +5,8 @@ import {
   startBlock,
   completeBlock,
   updateBlock,
-  addExtraBlock
+  addExtraBlock,
+  deleteBlock
 } from '../lib/scheduler.js'
 import { loadDailyPlans, getDailyPlan } from '../lib/fileStore.js'
 import { generateMotivationalNote } from '../../ai/motivate.js'
@@ -69,6 +70,14 @@ router.post('/add-extra-block', (req, res) => {
   const { dateStr, subjectId, subjectName, topic } = req.body
   const targetDate = dateStr || getTodayDateString()
   const updated = addExtraBlock(targetDate, { subjectId, subjectName, topic })
+  res.json(updated)
+})
+
+router.delete('/block/:blockId', (req, res) => {
+  const { dateStr } = req.body
+  const targetDate = dateStr || getTodayDateString()
+  const updated = deleteBlock(targetDate, req.params.blockId)
+  if (!updated) return res.status(404).json({ error: 'Block not found' })
   res.json(updated)
 })
 

@@ -116,11 +116,26 @@ export function updateSubject(subjectId, updates) {
 
 export function deleteSubject(subjectId) {
   const data = loadSubjectData()
-  const beforeCount = data.evergreen.length
-  data.evergreen = data.evergreen.filter(s => s.id !== subjectId)
-  if (data.evergreen.length === beforeCount) {
+  let removed = false
+
+  for (const sem of data.semesters) {
+    const beforeCount = sem.subjects.length
+    sem.subjects = sem.subjects.filter((s) => s.id !== subjectId)
+    if (sem.subjects.length !== beforeCount) {
+      removed = true
+    }
+  }
+
+  const beforeEvergreenCount = data.evergreen.length
+  data.evergreen = data.evergreen.filter((s) => s.id !== subjectId)
+  if (data.evergreen.length !== beforeEvergreenCount) {
+    removed = true
+  }
+
+  if (!removed) {
     return false
   }
+
   saveSubjectData()
   return true
 }

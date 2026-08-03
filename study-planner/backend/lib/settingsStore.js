@@ -5,11 +5,7 @@
 // starting point, or just edit it from the website itself.
 
 import fs from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const settingsPath = path.join(__dirname, '..', 'data', 'settings.json')
+import { getDataFilePath } from './fileStore.js'
 
 const DEFAULT_SETTINGS = {
   dailyGoalMinutes: 360, // the "6-hour challenge" — change freely
@@ -29,15 +25,21 @@ const DEFAULT_SETTINGS = {
   }
 }
 
+function settingsPath() {
+  return getDataFilePath('settings.json')
+}
+
 export function loadSettings() {
-  if (!fs.existsSync(settingsPath)) {
-    fs.writeFileSync(settingsPath, JSON.stringify(DEFAULT_SETTINGS, null, 2))
+  const path = settingsPath()
+  if (!fs.existsSync(path)) {
+    fs.writeFileSync(path, JSON.stringify(DEFAULT_SETTINGS, null, 2))
     return structuredClone(DEFAULT_SETTINGS)
   }
-  return JSON.parse(fs.readFileSync(settingsPath, 'utf-8'))
+  return JSON.parse(fs.readFileSync(path, 'utf-8'))
 }
 
 export function saveSettings(next) {
-  fs.writeFileSync(settingsPath, JSON.stringify(next, null, 2))
+  const path = settingsPath()
+  fs.writeFileSync(path, JSON.stringify(next, null, 2))
   return next
 }

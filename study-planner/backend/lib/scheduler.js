@@ -211,6 +211,22 @@ export function addExtraBlock(dateStr, { subjectId, subjectName, topic }) {
   return attachTotals(plan, settings)
 }
 
+export function deleteBlock(dateStr, blockId) {
+  const settings = loadSettings()
+  const plan = getDailyPlan(dateStr)
+  if (!plan) return null
+
+  const beforeCount = plan.blocks.length
+  plan.blocks = plan.blocks.filter((block) => block.id !== blockId)
+
+  if (plan.blocks.length === beforeCount) {
+    return null
+  }
+
+  saveDailyPlan(dateStr, plan)
+  return attachTotals(plan, settings)
+}
+
 export function markBlockComplete(dateStr, blockId, completedMinutes) {
   return completeBlock(dateStr, blockId, null, completedMinutes)
 }
